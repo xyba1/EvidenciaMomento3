@@ -1,0 +1,30 @@
+/* src/components/SkeletonReserva.css */
+.skeleton-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skeleton-nombre      { height: 18px; width: 55%; }
+.skeleton-badge       { height: 22px; width: 80px; border-radius: 20px; }
+.skeleton-line        { height: 13px; width: 80%; }
+.skeleton-line-short  { height: 13px; width: 50%; }
+
+.skeleton-actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.skeleton-btn { height: 30px; width: 80px; border-radius: 6px; }

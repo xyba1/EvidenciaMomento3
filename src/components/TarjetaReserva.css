@@ -1,0 +1,68 @@
+/* src/components/TarjetaReserva.css */
+.tarjeta-reserva {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-card);
+}
+
+.tarjeta-reserva:hover {
+  border-color: rgba(255,255,255,0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* Tarjeta finalizada — opacidad reducida */
+.tarjeta-reserva.finalizada {
+  opacity: 0.6;
+}
+
+/* Encabezado: nombre + badge */
+.tarjeta-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.tarjeta-nombre {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Detalles informativos */
+.tarjeta-detalles {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tarjeta-detalle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+/* Fila de acciones */
+.tarjeta-acciones {
+  display: flex;
+  gap: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+/* Variante pequeña de btn */
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.78rem;
+}
