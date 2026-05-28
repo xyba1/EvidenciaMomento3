@@ -1,0 +1,170 @@
+/* src/pages/Panel.css */
+.panel-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-base);
+}
+
+.panel-main {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Sección superior: título + stats ── */
+.panel-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.panel-titulo {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.panel-subtitulo {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ── Estadísticas ── */
+.stats-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  transition: border-color var(--transition);
+}
+
+.stat-card:hover { border-color: rgba(255,255,255,0.1); }
+
+.stat-numero {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-top: 4px;
+}
+
+.stat-confirmada .stat-numero { color: var(--estado-confirmada); }
+.stat-espera     .stat-numero { color: var(--estado-espera); }
+.stat-finalizada .stat-numero { color: var(--estado-finalizada); }
+
+/* ── Toolbar: filtros + acciones ── */
+.panel-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.filtros {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filtro-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filtro-btn:hover {
+  border-color: var(--amber-border);
+  color: var(--text-primary);
+}
+
+.filtro-btn.active {
+  background: var(--amber-glow);
+  border-color: var(--amber-border);
+  color: var(--amber-400);
+  font-weight: 500;
+}
+
+.filtro-count {
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 1px 6px;
+  font-size: 0.72rem;
+}
+
+.toolbar-acciones {
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Banner de error ── */
+.error-banner {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: #fca5a5;
+  font-size: 0.88rem;
+}
+
+/* ── Grid de tarjetas ── */
+.reservas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+/* Animación de spin para el ícono de recarga */
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .panel-main { padding: 20px 16px 40px; }
+  .panel-top  { flex-direction: column; }
+  .panel-toolbar { flex-direction: column; align-items: flex-start; }
+  .toolbar-acciones { width: 100%; justify-content: flex-end; }
+  .stats-grid { width: 100%; justify-content: space-between; }
+  .stat-card  { flex: 1; }
+  .reservas-grid { grid-template-columns: 1fr; }
+}
