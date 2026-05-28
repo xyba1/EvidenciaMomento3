@@ -1,0 +1,298 @@
+/* ============================================================
+   TABLE-TRACK — ESTILOS GLOBALES
+   Tema: Dashboard premium para restaurante
+   Paleta: Oscuro con acentos ámbar/dorado
+   ============================================================ */
+
+/* --- Variables de diseño (Design Tokens) --- */
+:root {
+  /* Colores principales */
+  --bg-base:        #0d0d0f;
+  --bg-surface:     #141418;
+  --bg-card:        #1a1a20;
+  --bg-card-hover:  #1f1f26;
+  --bg-input:       #111115;
+
+  /* Acentos ámbar / dorado */
+  --amber-400:      #fbbf24;
+  --amber-500:      #f59e0b;
+  --amber-600:      #d97706;
+  --amber-glow:     rgba(251, 191, 36, 0.15);
+  --amber-border:   rgba(251, 191, 36, 0.3);
+
+  /* Texto */
+  --text-primary:   #f5f4f0;
+  --text-secondary: #9c9a94;
+  --text-muted:     #5c5a55;
+
+  /* Bordes */
+  --border:         rgba(255, 255, 255, 0.06);
+  --border-subtle:  rgba(255, 255, 255, 0.03);
+
+  /* Estados de reserva */
+  --estado-confirmada:  #10b981;
+  --estado-espera:      #f59e0b;
+  --estado-finalizada:  #6b7280;
+
+  --estado-confirmada-bg:  rgba(16, 185, 129, 0.1);
+  --estado-espera-bg:      rgba(245, 158, 11, 0.1);
+  --estado-finalizada-bg:  rgba(107, 114, 128, 0.1);
+
+  /* Tipografía */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* Sombras */
+  --shadow-card:  0 1px 3px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3);
+  --shadow-amber: 0 0 20px rgba(251, 191, 36, 0.15);
+
+  /* Transiciones */
+  --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Reset base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* --- Scrollbar personalizada --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* --- Tipografía base --- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--amber-400);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: var(--amber-500); }
+
+/* --- Botones base --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--amber-500);
+  color: #0d0d0f;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--amber-400);
+  box-shadow: var(--shadow-amber);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-card-hover);
+  border-color: var(--amber-border);
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+.btn-danger:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+.btn-ghost:hover:not(:disabled) {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+/* --- Inputs base --- */
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--amber-border);
+  box-shadow: 0 0 0 3px var(--amber-glow);
+}
+
+.input::placeholder { color: var(--text-muted); }
+
+.input-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* --- Badges de estado --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.badge-confirmada {
+  background: var(--estado-confirmada-bg);
+  color: var(--estado-confirmada);
+}
+.badge-espera {
+  background: var(--estado-espera-bg);
+  color: var(--estado-espera);
+}
+.badge-finalizada {
+  background: var(--estado-finalizada-bg);
+  color: var(--estado-finalizada);
+}
+
+/* --- Tarjeta base --- */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  border-color: rgba(255,255,255,0.09);
+}
+
+/* --- Spinner de carga --- */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--amber-500);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Skeleton loader --- */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    var(--bg-card-hover) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* --- Animaciones de entrada --- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-in {
+  animation: fadeInUp 0.4s ease both;
+}
+
+/* --- Utilidades --- */
+.text-muted    { color: var(--text-secondary); }
+.text-accent   { color: var(--amber-400); }
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+
+/* --- Responsive helpers --- */
+@media (max-width: 640px) {
+  .hide-mobile { display: none !important; }
+}
+@media (min-width: 641px) {
+  .hide-desktop { display: none !important; }
+}
