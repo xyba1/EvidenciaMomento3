@@ -1,0 +1,184 @@
+/* src/pages/Login.css */
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+/* Panel izquierdo — decorativo */
+.login-deco {
+  position: relative;
+  background: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.login-deco::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 60%, rgba(251,191,36,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 70% 30%, rgba(251,191,36,0.04) 0%, transparent 70%);
+}
+
+.deco-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.deco-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.deco-logo {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.deco-logo span {
+  color: var(--amber-400);
+}
+
+.deco-tagline {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+.deco-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.deco-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.deco-feature-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--amber-glow);
+  border: 1px solid var(--amber-border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--amber-400);
+}
+
+/* Panel derecho — formulario */
+.login-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 40px;
+  background: var(--bg-base);
+}
+
+.login-form-wrapper {
+  width: 100%;
+  max-width: 380px;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.login-title {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.login-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 36px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.turno-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.turno-btn {
+  padding: 10px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.turno-btn:hover {
+  border-color: var(--amber-border);
+  color: var(--text-primary);
+}
+
+.turno-btn.active {
+  background: var(--amber-glow);
+  border-color: var(--amber-border);
+  color: var(--amber-400);
+  font-weight: 500;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  justify-content: center;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+/* Responsive — móvil */
+@media (max-width: 768px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+  .login-deco {
+    display: none;
+  }
+  .login-form-panel {
+    padding: 32px 24px;
+    align-items: flex-start;
+    padding-top: 60px;
+  }
+  .login-form-wrapper {
+    max-width: 100%;
+  }
+}
