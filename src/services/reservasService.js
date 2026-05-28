@@ -1,10 +1,4 @@
-// src/services/reservasService.js
-// Servicio de API para el CRUD de reservas
-// Utiliza MockAPI como backend simulado
 
-// ⚠️ IMPORTANTE: Reemplaza esta URL con tu propia URL de MockAPI
-// Crea tu recurso en https://mockapi.io con los campos:
-// id, nombreCliente, fechaHora, cantidadPersonas, estado
 const BASE_URL = 'https://6a17aced1878294b597bb9be.mockapi.io/api/v1'
 
 /**
